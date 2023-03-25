@@ -9,15 +9,27 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "build-button.helloWorld",
-        "title": "Hello World"
+        "command": "extension.build",
+        "title": "Build Project"
       }
-    ]
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "extension.build",
+          "when": "editorLangId == 'typescript' || editorLangId == 'javascript' || editorLangId == 'csharp' || editorLangId == 'cs'",
+          "group": "navigation",
+          "icon": {
+            "dark": "${workspaceRoot}/images/dark/build.svg",
+            "light": "${workspaceRoot}/images/light/build.svg"
+          }
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run package",

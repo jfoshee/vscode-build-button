@@ -1,26 +1,26 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
+  const disposable = vscode.commands.registerTextEditorCommand('extension.build', async (editor: vscode.TextEditor) => {
+    const tasks = await vscode.tasks.fetchTasks();
+    const buildTask = tasks.find(task => task.name === 'build');
+    if (buildTask) {
+      vscode.tasks.executeTask(buildTask);
+    }
+  });
+  context.subscriptions.push(disposable);
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "build-button" is now active!');
+  const buildButton = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 0);
+  buildButton.text = "$(gear) Build";
+  buildButton.command = 'extension.build';
+  buildButton.tooltip = 'Build the project';
+  buildButton.show();
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('build-button.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from build-button!');
-	});
-
-	context.subscriptions.push(disposable);
+  const editorTitleButton = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, -1);
+  editorTitleButton.text = "$(gear)";
+  editorTitleButton.command = 'extension.build';
+  editorTitleButton.tooltip = 'Build the project';
+  editorTitleButton.show();
 }
 
-// This method is called when your extension is deactivated
 export function deactivate() {}
