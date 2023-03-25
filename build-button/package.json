@@ -21,7 +21,6 @@
       "editor/title": [
         {
           "command": "extension.build",
-          "when": "editorLangId == 'typescript' || editorLangId == 'javascript' || editorLangId == 'csharp' || editorLangId == 'cs'",
           "group": "navigation",
           "icon": {
             "dark": "${workspaceRoot}/images/dark/build.svg",
