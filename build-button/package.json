@@ -1,8 +1,11 @@
 {
   "name": "build-button",
-  "displayName": "build-button",
+  "displayName": "Build Button",
   "description": "Adds a Build toolbar button",
-  "version": "0.0.1",
+  "version": "0.1.0",
+  "repository": {
+    "url": "https://github.com/jfoshee/vscode-build-button"
+  },
   "engines": {
     "vscode": "^1.76.0"
   },
@@ -14,18 +17,18 @@
     "commands": [
       {
         "command": "extension.build",
-        "title": "Build Project"
+        "title": "Build Project",
+        "icon": {
+          "dark": "images/dark/build.svg",
+          "light": "images/light/build.svg"
+        }
       }
     ],
     "menus": {
       "editor/title": [
         {
           "command": "extension.build",
-          "group": "navigation",
-          "icon": {
-            "dark": "${workspaceRoot}/images/dark/build.svg",
-            "light": "${workspaceRoot}/images/light/build.svg"
-          }
+          "group": "navigation"
         }
       ]
     }
@@ -39,7 +42,8 @@
     "watch-tests": "tsc -p . -w --outDir out",
     "pretest": "npm run compile-tests && npm run compile && npm run lint",
     "lint": "eslint src --ext ts",
-    "test": "node ./out/test/runTest.js"
+    "test": "node ./out/test/runTest.js",
+    "vsce": "vsce"
   },
   "devDependencies": {
     "@types/glob": "^8.1.0",
