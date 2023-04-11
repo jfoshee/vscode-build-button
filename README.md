@@ -1,8 +1,8 @@
 # Build Button
 
 Adds a Build button to the Editor Toolbar (seen alongside the open document tabs).  
-This button simply runs the default configured Built task, 
-which is usually bound to <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd>
+This button simply runs the default configured Build task, 
+which is usually bound to <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd>.
 
 ![Build button in light mode](images/snip-light.jpg)
 ![Build button in dark mode](images/snip-dark.jpg)
@@ -16,6 +16,7 @@ The default build task will be configured in `.vscode/tasks.json` like so:
       "kind": "build",
       "isDefault": true
     }
+    ...
 ```
 
 ## Known Issues
@@ -24,7 +25,10 @@ The default build task will be configured in `.vscode/tasks.json` like so:
 
 ## Release Notes
 
+### 1.0.0
+
+Add Extension Icon
+
 ### 0.1.0
 
 Initial release
-
