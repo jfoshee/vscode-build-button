@@ -6,6 +6,7 @@
   "repository": {
     "url": "https://github.com/jfoshee/vscode-build-button"
   },
+  "publisher": "ThoughtStuff",
   "engines": {
     "vscode": "^1.76.0"
   },
