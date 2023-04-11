@@ -2,11 +2,12 @@
   "name": "build-button",
   "displayName": "Build Button",
   "description": "Adds a Build toolbar button",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "repository": {
     "url": "https://github.com/jfoshee/vscode-build-button"
   },
   "publisher": "ThoughtStuff",
+  "icon": "icon.png",
   "engines": {
     "vscode": "^1.76.0"
   },
